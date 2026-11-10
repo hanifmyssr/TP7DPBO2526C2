@@ -5,8 +5,8 @@ USE db_gymhub;
 CREATE TABLE members (
     id INT AUTO_INCREMENT PRIMARY KEY,
     name VARCHAR(100) NOT NULL,
-    phone VARCHAR(15),
-    email VARCHAR(100) UNIQUE,
+    phone VARCHAR(15) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
     join_date DATE NOT NULL
 );
 
