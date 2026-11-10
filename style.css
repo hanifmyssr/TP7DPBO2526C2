@@ -1,0 +1,306 @@
+/* Reset dan Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #fff3ea;
+    color: #333;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* Main Container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    min-height: 100vh;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Header */
+header {
+    background-color: #ff6b1a;
+    color: white;
+    text-align: center;
+    padding: 40px 20px;
+    border-bottom: 4px solid #e55a0f;
+}
+
+header h1 {
+    font-size: 2.8em;
+    font-weight: 600;
+    margin-bottom: 10px;
+    letter-spacing: 1px;
+}
+
+header p {
+    font-size: 1.2em;
+    opacity: 0.95;
+    font-weight: 300;
+}
+
+/* Navigation */
+nav {
+    background-color: #e55a0f;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    border-bottom: 2px solid #c94d0b;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 18px 30px;
+    display: block;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    border-right: 1px solid #c94d0b;
+}
+
+nav a:hover,
+nav a.active {
+    background-color: #c94d0b;
+    color: #fff;
+}
+
+/* Main Content */
+main {
+    padding: 40px;
+    background-color: white;
+}
+
+/* Section Titles */
+h2, h3 {
+    color: #e55a0f;
+    margin-bottom: 25px;
+    font-weight: 600;
+    border-bottom: 3px solid #ff6b1a;
+    padding-bottom: 10px;
+}
+
+/* Tables */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 0 0 40px 0;
+    background-color: white;
+    border: 1px solid #ddd;
+}
+
+th {
+    background-color: #ff6b1a;
+    color: white;
+    padding: 18px 15px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 1em;
+    letter-spacing: 0.5px;
+    border-bottom: 2px solid #e55a0f;
+}
+
+td {
+    padding: 15px;
+    border-bottom: 1px solid #f1e4da;
+    transition: background-color 0.2s ease;
+    vertical-align: middle;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #fff8f3;
+}
+
+tbody tr:hover {
+    background-color: #ffe9d9;
+}
+
+td:last-child {
+    white-space: nowrap;
+}
+
+/* Forms */
+form {
+    background-color: #fff8f3;
+    padding: 30px;
+    margin: 30px 0;
+    border: 2px solid #ffd9bf;
+    border-radius: 5px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0 15px 0;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+    background-color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #ff6b1a;
+    box-shadow: 0 0 0 3px rgba(255, 107, 26, 0.15);
+}
+
+label {
+    font-weight: 600;
+    color: #495057;
+    margin-bottom: 5px;
+    display: block;
+}
+
+/* Buttons */
+button {
+    background-color: #ff6b1a;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    display: inline-block;
+    margin: 5px;
+}
+
+button:hover {
+    background-color: #e55a0f;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+button[name^="delete_"] {
+    background-color: #dc3545;
+}
+
+button[name^="delete_"]:hover {
+    background-color: #c82333;
+}
+
+/* Tombol Edit (link di dalam tabel) */
+td a {
+    display: inline-block;
+    background-color: #ff6b1a;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 2px;
+    transition: all 0.3s ease;
+}
+
+td a:hover {
+    background-color: #e55a0f;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Form hapus di dalam tabel: dibuat ringkas, tanpa kotak */
+td form {
+    display: inline;
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+td form button {
+    padding: 8px 15px;
+    font-size: 14px;
+    margin: 2px;
+}
+
+/* Link Cancel di dalam form */
+form a {
+    display: inline-block;
+    padding: 12px 25px;
+    margin: 5px;
+    color: #666;
+    text-decoration: none;
+    border: 2px solid #ddd;
+    border-radius: 4px;
+    background-color: white;
+}
+
+form a:hover {
+    border-color: #ff6b1a;
+    color: #e55a0f;
+}
+
+/* Alerts */
+.alert {
+    padding: 20px;
+    margin: 0 0 25px 0;
+    border-radius: 4px;
+    border-left: 4px solid;
+    font-weight: 500;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    border-color: #28a745;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    border-color: #dc3545;
+    color: #721c24;
+}
+
+/* Footer */
+footer {
+    background-color: #e55a0f;
+    color: white;
+    text-align: center;
+    padding: 30px;
+    border-top: 4px solid #c94d0b;
+}
+
+footer p {
+    margin: 5px 0;
+    opacity: 0.95;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .container {
+        box-shadow: none;
+    }
+
+    nav {
+        flex-direction: column;
+    }
+
+    nav a {
+        border-right: none;
+        border-bottom: 1px solid #c94d0b;
+        text-align: center;
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    table {
+        font-size: 14px;
+    }
+
+    th, td {
+        padding: 10px 8px;
+    }
+
+    header h1 {
+        font-size: 2.2em;
+    }
+}
