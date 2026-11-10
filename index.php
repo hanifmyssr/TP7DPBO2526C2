@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'class/Member.php';
 require_once 'class/Package.php';
 require_once 'class/Membership.php';
@@ -157,6 +158,40 @@ if (isset($_POST['delete_membership'])) {
     } else {
         $error = 'Gagal menghapus data.';
     }
+}
+
+// ===== REDIRECT SETELAH AKSI (POST) =====
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $targets = [
+        'add_member' => 'members', 'update_member' => 'members', 'delete_member' => 'members',
+        'add_package' => 'packages', 'update_package' => 'packages', 'delete_package' => 'packages',
+        'add_membership' => 'memberships', 'update_membership' => 'memberships', 'delete_membership' => 'memberships',
+    ];
+
+    $redirect = $page;
+    foreach ($targets as $button => $target) {
+        if (isset($_POST[$button])) {
+            $redirect = $target;
+        }
+    }
+
+    $_SESSION['flash'] = [
+        'type'    => $error !== '' ? 'error' : 'success',
+        'message' => $error !== '' ? $error : $success,
+    ];
+
+    header('Location: index.php?page=' . $redirect);
+    exit;
+}
+
+// ===== AMBIL PESAN SETELAH REDIRECT =====
+if (isset($_SESSION['flash'])) {
+    if ($_SESSION['flash']['type'] === 'error') {
+        $error = $_SESSION['flash']['message'];
+    } else {
+        $success = $_SESSION['flash']['message'];
+    }
+    unset($_SESSION['flash']);
 }
 
 // ===== MODE EDIT =====
