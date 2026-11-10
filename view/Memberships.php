@@ -1,3 +1,4 @@
+<!-- Tabel Riwayat & Daftar Keanggotaan -->
 <h3>Membership List</h3>
 <table border="1">
     <tr>
@@ -33,6 +34,7 @@
 
 <?php if ($editMembership): ?>
 
+    <!-- Form Edit Status Keanggotaan -->
     <h3>Edit Membership Status</h3>
     <form method="POST" action="?page=memberships">
         <input type="hidden" name="id" value="<?= $editMembership['id'] ?>">
@@ -56,6 +58,7 @@
 
 <?php else: ?>
 
+    <!-- Form Tambah Transaksi Keanggotaan Baru -->
     <h3>Add Membership</h3>
     <form method="POST" action="?page=memberships">
         <label>Member:</label>

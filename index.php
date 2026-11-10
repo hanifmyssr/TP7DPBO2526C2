@@ -1,13 +1,16 @@
 <?php
+// Controller utama aplikasi GymHub: mengatur routing, proses form (CRUD), dan rendering tampilan
 session_start();
 require_once 'class/Member.php';
 require_once 'class/Package.php';
 require_once 'class/Membership.php';
 
+// Inisialisasi instance class model
 $member = new Member();
 $package = new Package();
 $membership = new Membership();
 
+// Fungsi helper untuk mencari 1 data berdasarkan ID dari array data
 function findById($rows, $id) {
     foreach ($rows as $row) {
         if ((int) $row['id'] === $id) {
@@ -17,6 +20,7 @@ function findById($rows, $id) {
     return null;
 }
 
+// Inisialisasi variabel halaman dan notifikasi
 $page = $_GET['page'] ?? 'members';
 $error = '';
 $success = '';
@@ -216,15 +220,18 @@ if (isset($_GET['edit'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Header Aplikasi -->
     <?php include 'view/header.php'; ?>
 
     <main>
+        <!-- Navigasi Tab Menu -->
         <nav>
             <a href="?page=members" class="<?= $page === 'members' ? 'active' : '' ?>">Members</a>
             <a href="?page=packages" class="<?= $page === 'packages' ? 'active' : '' ?>">Packages</a>
             <a href="?page=memberships" class="<?= $page === 'memberships' ? 'active' : '' ?>">Memberships</a>
         </nav>
 
+        <!-- Menampilkan Pesan Notifikasi Sukses / Error -->
         <?php if ($error !== ''): ?>
             <div class="alert error"><?= htmlspecialchars($error) ?></div>
         <?php endif; ?>
@@ -233,6 +240,7 @@ if (isset($_GET['edit'])) {
         <?php endif; ?>
 
         <?php
+        // Routing konten dinamis sesuai parameter halaman (?page=...)
         $pages = [
             'members'     => 'view/members.php',
             'packages'    => 'view/packages.php',
@@ -244,6 +252,7 @@ if (isset($_GET['edit'])) {
         ?>
     </main>
 
+    <!-- Footer Aplikasi -->
     <?php include 'view/footer.php'; ?>
 </body>
 </html>

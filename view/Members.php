@@ -1,3 +1,4 @@
+<!-- Tabel Daftar Member -->
 <h3>Member list</h3>
 <table border = "1">
     <tr>
@@ -27,8 +28,9 @@
     <?php endforeach; ?>
 </table>
 
+<!-- Form Tambah / Edit Member -->
 <h3><?= $editMember ? 'Edit Member' : 'Add Member'?></h3>
-<form method="POST" action="?page=me,bers?">
+<form method="POST" action="?page=members">
     <?php if ($editMember): ?>
         <input type="hidden" name="id" value="<?= $editMember['id'] ?>">
     <?php endif; ?>

@@ -1,3 +1,4 @@
+<!-- Tabel Daftar Paket Gym -->
 <h3>Package List</h3>
 <table border="1">
     <tr>
@@ -25,6 +26,7 @@
     <?php endforeach; ?>
 </table>
 
+<!-- Form Tambah / Edit Paket Gym -->
 <h3><?= $editPackage ? 'Edit Package' : 'Add Package' ?></h3>
 <form method="POST" action="?page=packages">
     <?php if ($editPackage): ?>
